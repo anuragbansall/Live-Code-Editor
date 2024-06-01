@@ -8,6 +8,7 @@
 html,body{
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar{
@@ -22,8 +23,8 @@ html,body{
 .main{
     display: flex;
     gap: 1vw;
-    overflow: hidden;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
     width: 100vw;
     background-color: #222;
     padding: 2rem;
@@ -41,14 +42,14 @@ html,body{
 .code-window-container .code-window{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: fit-content;
     width: 100%;
 }
 
 .code-window-container .code-window textarea{
-    height: 100%;
+    height: 22vh;
     width: 100%;
-    resize: none;
+    resize: vertical;
     padding: 1rem;
     font-size: 1.5vw;
     background-color: #111;
@@ -81,7 +82,7 @@ html,body{
 }
 
 .code-output-container .code-output-window{
-    height: 100%;
+    height: 80vh;
     width: 100%;
     background-color: #ddd;
     color: #fff;
@@ -108,7 +109,6 @@ html,body{
     .code-window-container .code-window{
         display: flex;
         flex-direction: column;
-        height: 100vw;
     }
     
     .code-window-container .code-window textarea{
@@ -127,7 +127,7 @@ html,body{
     }
 
     .code-output-container .code-output-window{
-        height: 100vh;
+        height: 70vh;
         width: 100%;
     }
 }
