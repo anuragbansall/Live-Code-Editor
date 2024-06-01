@@ -61,10 +61,25 @@ html,body{
 .code-window-container .code-window .code-window-top{
     display: flex;
     align-items: center;
-    gap: 0.5vw;
+    justify-content: space-between;
     background-color: #000;
     color: #fff;
     padding: 0.5rem 1rem;
+}
+
+.code-window-container .code-window .code-window-top>span{
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.code-window-container .code-window .code-window-top .copy-code-btn{
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    text-transform: capitalize;
+    cursor: pointer;
 }
 
 .code-output-container{
@@ -117,8 +132,11 @@ html,body{
     }
     
     .code-window-container .code-window .code-window-top{
-        gap: 2vw;
         padding: 0.75rem 1rem;
+    }
+
+    .code-window-container .code-window .code-window-top>span{
+        gap: 2vw;
     }
     
     .code-output-container .code-output-top{

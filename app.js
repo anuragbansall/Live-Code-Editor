@@ -50,3 +50,20 @@ function autoComplete(character, textArea) {
     let newPos = startPos + replacement.length - 1;
     textArea.setSelectionRange(newPos, newPos);
 }
+
+let allCopyBtn = document.querySelectorAll(".copy-code-btn");
+for(copyBtn of allCopyBtn){
+    copyBtn.addEventListener("click", function(e){
+        let text = e.target.parentElement.nextElementSibling;
+        copyToClipboard(text);
+    })
+}
+
+function copyToClipboard(text) {
+    var textarea = text;
+  
+    textarea.select();
+    textarea.setSelectionRange(0, 99999);
+
+    document.execCommand("copy");
+  }
