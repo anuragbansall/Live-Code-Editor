@@ -18,14 +18,35 @@ function runCode(){
     }catch{}
 }
 
-function autoComplete(character, textArea){
+function autoComplete(character, textArea) {
     let brackets = {
-        '[' : ']',
-        '(' : ')',
-        '{' : '}',
-        '<' : '>',
+        '[': ']',
+        '(': ')',
+        '{': '}',
+        '<': '>',
     };
+
+    let startPos = textArea.selectionStart;
+    let endPos = textArea.selectionEnd;
+    let selectedText = textArea.value.substring(startPos, endPos);
+    let replacement = '';
+
     if (brackets.hasOwnProperty(character)) {
-        textArea.value += brackets[character];
+        let isStartBracketPresent = selectedText.trim() === character;
+        if (!isStartBracketPresent) {
+            replacement = brackets[character];
+        } else {
+            endPos--;
+        }
+    } else {
+        return;
     }
+
+    textArea.value =
+        textArea.value.substring(0, startPos) +
+        replacement +
+        textArea.value.substring(endPos);
+
+    let newPos = startPos + replacement.length - 1;
+    textArea.setSelectionRange(newPos, newPos);
 }
